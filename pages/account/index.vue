@@ -3,7 +3,7 @@
 
 <template>
   <div>
-    <Button>Index</Button>
+    <Button>Account</Button>
   </div>
 </template>
 
