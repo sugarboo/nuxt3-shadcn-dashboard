@@ -4,7 +4,7 @@
       <Sidebar />
     </div>
 
-    <div>
+    <div class="w-full p-8">
       <slot />
     </div>
   </div>
