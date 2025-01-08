@@ -1,4 +1,6 @@
-<script setup>
+<script setup lang="ts">
+import type { Card } from '~/components/Base/Card.vue'
+
 const tabsList = [
   {
     title: 'Today',
@@ -17,6 +19,33 @@ const tabsList = [
     component: resolveComponent('TabsYear'),
   },
 ]
+
+const cards: Card[] = [
+  {
+    title: 'Sales',
+    progression: 12,
+    amount: 1244.43,
+    label: 'View sales',
+    description: 'Total sales for the month',
+    icon: 'solar:ticket-sale-outline',
+  },
+  {
+    title: 'Refunds',
+    progression: 8,
+    amount: 84.44,
+    label: 'View refunds',
+    description: 'Refunds since beginning of the year',
+    icon: 'heroicons-outline:receipt-refund',
+  },
+  {
+    title: 'Payouts',
+    progression: 14,
+    amount: 899.99,
+    label: 'View payouts',
+    description: 'Payouts of this week',
+    icon: 'tabler:zoom-money',
+  },
+]
 </script>
 
 <template>
@@ -30,19 +59,19 @@ const tabsList = [
     </header>
 
     <main class="grid gap-4">
-      <Tabs default-value="today" class="w-[400px]">
+      <Tabs default-value="Today" class="w-[400px]">
         <TabsList>
-          <TabsTrigger v-for="item in tabsList" :key="item.component" :value="item.title">
+          <TabsTrigger v-for="item in tabsList" :key="item.title" :value="item.title">
             {{ item.title }}
           </TabsTrigger>
         </TabsList>
-        <TabsContent v-for="item in tabsList" :key="item.component" :value="item.title">
+        <TabsContent v-for="item in tabsList" :key="item.title" :value="item.title">
           <component :is="item.component" />
         </TabsContent>
       </Tabs>
-      <div class="flex items-center gap-4">
+      <!-- <div class="flex items-center gap-4">
         <div v-for="i in 3" :key="i" class="w-[120px] h-[36px] bg-neutral-200 rounded-md" />
-      </div>
+      </div> -->
       <section>
         <div class="w-full h-[360px] bg-neutral-200" />
       </section>
@@ -50,7 +79,7 @@ const tabsList = [
 
     <footer>
       <div class="flex justify-between items-center gap-4">
-        <div v-for="i in 3" :key="i" class="flex-1 w-full h-[240px] bg-neutral-200 rounded-md" />
+        <BaseCard v-for="item in cards" :key="item.title" :card="item" class="flex-1 w-full h-[240px] bg-neutral-100/20 rounded-md" />
       </div>
     </footer>
   </div>
