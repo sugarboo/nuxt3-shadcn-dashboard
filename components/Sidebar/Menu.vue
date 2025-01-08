@@ -39,18 +39,16 @@ const items = ref([
       </NuxtLink>
     </header>
     <div class="px-4 grow">
-      <div class="">
-        <ul class="grid gap-4">
-          <li v-for="{ path, title, icon } in items" :key="path">
-            <NuxtLink :to="path" class="flex items-center gap-2 p-2 rounded-md hover:bg-gray-100 transition-all duration-300">
-              <Icon :name="icon" :size="20" color="black" />
-              <span class="font-semibold">
-                {{ title }}
-              </span>
-            </NuxtLink>
-          </li>
-        </ul>
-      </div>
+      <ul class="grid gap-4">
+        <li v-for="{ path, title, icon } in items" :key="path">
+          <NuxtLink :to="path" class="flex items-center gap-2 p-2 rounded-md hover:bg-gray-100 transition-all duration-300">
+            <Icon :name="icon" :size="20" color="black" />
+            <span class="font-semibold">
+              {{ title }}
+            </span>
+          </NuxtLink>
+        </li>
+      </ul>
     </div>
   </div>
 </template>

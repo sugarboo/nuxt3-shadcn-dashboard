@@ -8,7 +8,6 @@ function toggleIsOpen() {
 
 <template>
   <div class="relative">
-    <!-- <Logo /> -->
     <div class="flex lg:hidden justify-between items-center w-full h-full p-4 z-50">
       <Logo />
       <Icon
